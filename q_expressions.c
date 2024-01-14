@@ -344,7 +344,6 @@ int main(int argc, char** argv) {
             lval *x = lval_eval(lval_read(r.output));
             lval_println(x);
             lval_del(x);
-            mpc_ast_print(r.output);
             mpc_ast_delete(r.output);
         } else {
             mpc_err_print(r.error);
@@ -354,7 +353,7 @@ int main(int argc, char** argv) {
         free(input);
     }
 
-    mpc_cleanup(6, Number, Symbol, Sexpr, Expr, Lispy);
+    mpc_cleanup(6, Number, Symbol, Sexpr, Qexpr, Expr, Lispy);
 
     return 0;
 }
